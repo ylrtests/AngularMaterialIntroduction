@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="group.value" [(opened)]="value" >
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <a routerLink="/">Go to Home</a>
+    <h2 class="description">Sidenav</h2>
+    <p>Sidenav has three different modes:</p>
+    <ul>
+      <li>over</li>
+      <li>push</li>
+      <li>side</li>
+    </ul>
+    <p>Try them out!</p>
+    <p>Current mode: {{group.value}}</p>
+    <mat-button-toggle-group value="over" #group="matButtonToggleGroup">
+      <mat-button-toggle value="over">over</mat-button-toggle>
+      <mat-button-toggle value="push">push</mat-button-toggle>
+      <mat-button-toggle value="side">side</mat-button-toggle>
+    </mat-button-toggle-group>
+    <p>Current status opened: {{value}}</p>
+    <button mat-stroked-button (click)="sidenav.open()" color="primary">Toggle Sidenav</button>
+  </mat-sidenav-content>
+</mat-sidenav-container> 

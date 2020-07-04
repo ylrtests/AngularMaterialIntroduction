@@ -1,0 +1,143 @@
+<!-- Buttons -->
+<a href="https://material.angular.io/components/button/overview" target="_blank">
+    <h1 class="main-title">Buttons</h1>
+  </a>
+  <hr>
+  <button mat-button>Mat Button</button>
+  <button mat-raised-button>Mat Raised Button</button>
+  <button mat-flat-button>Mat Flat Button</button>
+  <button mat-stroked-button>Mat Stroked Button</button>
+  <div>
+    <button mat-icon-button>Icon</button>
+    <button mat-fab>Fab</button>
+    <button mat-mini-fab>Mini</button>
+  </div>
+  
+  <div>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">accent</button>
+    <button mat-button color="warn">warn</button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">accent</button>
+    <button mat-raised-button color="warn">warn</button>
+  </div>
+  <hr>
+  <!-- Button Toggle: Behaves like a Radio Button-->
+  <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">
+    <h1 class="main-title">Buttons Toggle</h1>
+  </a>
+  <hr>
+  <div>
+    <h2 class="description">Simple toggle button</h2>
+    <mat-button-toggle #toggleButton>Toggle</mat-button-toggle>
+    <p>Toggle Button Value: {{toggleButton.checked}}</p>
+  </div>
+  <div>
+    <h2 class="description">toggle Group only one value</h2>
+    <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle value="angular">Angular</mat-button-toggle>
+      <mat-button-toggle value="react">React</mat-button-toggle>
+      <mat-button-toggle value="vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+    <p>Value button toggle: {{group.value}}</p>
+  </div>
+  <div>
+    <h2 class="description">toggle Group stores many values</h2>
+    <mat-button-toggle-group #groupee="matButtonToggleGroup" multiple>
+      <mat-button-toggle value="react">React</mat-button-toggle>
+      <mat-button-toggle value="vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <p>Value button toggle: {{groupee.value}}</p>
+  </div>
+  
+  <hr>
+  <!-- Icons & Badges -->
+  <a href="https://material.angular.io/components/icon/overview" target="_blank">
+    <h1 class="main-title">Icons</h1>
+  </a>
+  <hr>
+  <p>List of icons: <a href="https://material.io/resources/icons/?style=baseline" target="_blank"> Check them</a></p>
+  <div>
+    <mat-icon>start</mat-icon>
+    <mat-icon>restore</mat-icon>
+    <mat-icon color="primary">start</mat-icon>
+    <mat-icon color="accent">explicit</mat-icon>
+  </div>
+  <p>For badges we use the attributte matBadge="value in Badge" we could also modify:</p>
+  <ul>
+    <li>matBadgeSize = small/medium/large</li>
+    <li>madBadgePosition = below/above - before/after</li>
+    <li>madBadgeColor = "primary, accent, warn..."</li>
+    <li>matBadgeOverlap = acomoda el badge a una posición donde no haga overlap con el elemento - false/true</li>
+  </ul>
+  <span class="mat-badge-example" matBadge="5">Notifications</span>
+  <span class="mat-badge-example" matBadge="5" matBadgeSize="small" matBadgePosition="below before">Modyfing
+    position</span>
+  <span class="mat-badge-example" matBadge="5" matBadgeSize="large" matBadgePosition="below after">Modyfing
+    position</span>
+  <span class="mat-badge-example" matBadge="5" matBadgePosition="above before">Modyfing position</span>
+  <span class="mat-badge-example" matBadge="5" matBadgePosition="above after">Modyfing position</span>
+  <span class="mat-badge-example" matBadge="5" matBadgePosition="above after" matBadgeColor="accent"
+    matBadgeOverlap="false">MatBadgeOverlap = false</span>
+  <hr>
+  <!-- Progress Spinner & Progress Bar Indicator -->
+  <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">
+    <h1 class="main-title">Progress Spinner & Progress Bar Indicator</h1>
+  </a>
+  <h2 class="description">Progress Spinner</h2>
+  <mat-progress-spinner value="40"></mat-progress-spinner> <span>Value 40</span>
+  <mat-progress-spinner value="100"></mat-progress-spinner> <span>Value 100</span>
+  <button mat-flat-button color="accent" (click)="loadData()" style="display: block">Show Spinner</button>
+  <div *ngIf="showSpinner">
+    <mat-spinner color="accent"></mat-spinner><span>Spinner running indefinitely for 3 sec</span>
+  </div>
+  <h2 class="description">Progress Bar Indicator</h2>
+  <p>Mode query</p>
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  <p>Mode Buffer</p>
+  <mat-progress-bar mode="buffer"></mat-progress-bar>
+  <p>With value 40</p>
+  <button (click)="incrementBarProgress()">Increment BarProgressValue</button>
+  <mat-progress-bar mode="determinate" [value]="barProgressValue"></mat-progress-bar>
+  <hr>
+  <!-- Toolbar & Sidenav -->
+  <hr>
+  <h1 class="main-title">Toolbar & sidenav</h1>
+  <h2 class="description">Toolbar</h2>
+  <mat-toolbar color="accent" class="navbar">
+    <div>CodeVolution</div>
+    <div>
+      <span>Home</span>
+      <span>About</span>
+      <span>Services </span>
+    </div>
+  </mat-toolbar>
+  <h2 class="description">Sidenav</h2>
+  <a routerLink="/sidenav">Go to SidenavExample</a>
+  <!-- Typography -->
+  <h1 class="main-title">Typography</h1>
+  <hr>
+  
+  <div class="mat-display-4">Hola</div>
+  <div class="mat-display-3">Hola</div>
+  <div class="mat-display-2">Hola</div>
+  <div class="mat-display-1">Hola</div>
+  
+  <div class="mat-headline">This is a heading for mat-headline</div>
+  <div class="mat-title">This is a heading for h2: mat-title</div>
+  <div class="mat-subheading-2">This is a subheading for h3: mat-subheading-1</div>
+  <div class="mat-subheading-1">This is a subheading for h4: mat-subheading-2</div>
+  
+  <div class="mat-body-1">This is body text</div>
+  <div class="mat-body-2">This is bold body text</div>
+  <div class="mat-caption">This is caption text</div>
+  
+  <div class="mat-typography">
+    <h1>This is a heading for h1</h1>
+    <h2>This is a heading for h2</h2>
+    <h3>This is a heading for h3</h3>
+    <h4>This is a heading for h4</h4>
+  </div>
