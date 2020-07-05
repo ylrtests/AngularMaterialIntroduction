@@ -103,7 +103,65 @@
   <button (click)="incrementBarProgress()">Increment BarProgressValue</button>
   <mat-progress-bar mode="determinate" [value]="barProgressValue"></mat-progress-bar>
   <hr>
-  <!-- Toolbar & Sidenav -->
+  <!-- Menu -->
+  <hr>
+  <h1 class="main-title">Menu</h1>
+  <p>Podemos editar las posiciones de los menus, hay posiciones diferentes para Frontend y Backend</p>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="subMenuFrontend">Frontend</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenuBackend">Backend</button>
+  </mat-menu>
+  <mat-menu #subMenuFrontend="matMenu" xPosition="after" yPosition="above">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+  </mat-menu>
+  <mat-menu #subMenuBackend="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item>Node</button>
+    <button mat-menu-item>Laravel</button>
+  </mat-menu>
+  <button mat-flat-button color="primary"  [matMenuTriggerFor]="appMenu">Menu</button>
+  <!-- Lazy Menu -->
+  <p>Using LazyMenu para tener contenido dinámico dentro de las opciones del menu</p>
+  <mat-menu #lazyLoad="matMenu">
+    <ng-template matMenuContent let-name="name" let-hobby="hobby">
+      <button mat-menu-item>Settings {{hobby}}</button>
+      <button mat-menu-item>Log out {{name}}</button>
+    </ng-template>
+  </mat-menu>
+  <button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionA" color="primary">Lazy Menu A options</button>
+  <button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionB" color="primary">Lazy Menu B options</button>
+  <hr>
+  <!-- Lists -->
+  <hr>
+  <h1 class="main-title">Lists</h1>
+  <mat-list dense>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list>
+  <mat-nav-list>
+    <a href="#" mat-list-item>Home</a>
+    <a href="#" mat-list-item>Example</a>
+    <a href="#" mat-list-item>Nothing</a>
+    <a href="#" mat-list-item>Different</a>
+  </mat-nav-list>
+  <!-- Mat list using icon and matline -->
+  <mat-list dense>
+    <mat-list-item>
+      <mat-icon matListIcon>home</mat-icon>
+      <h3 matLine>Heading 1 </h3>
+      <p matLine>Line 1</p>
+      <p matLine>Third thing 1</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine>Heading 2</h3>
+      <p matLine>Line 2</p>
+    </mat-list-item>
+  </mat-list>
+
+  <!-- Toolbar & sidenav -->
   <hr>
   <h1 class="main-title">Toolbar & sidenav</h1>
   <h2 class="description">Toolbar</h2>

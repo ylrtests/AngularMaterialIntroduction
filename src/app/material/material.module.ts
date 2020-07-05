@@ -7,6 +7,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 const MaterialMods = [
   MatButtonModule,
@@ -16,7 +19,10 @@ const MaterialMods = [
   MatProgressSpinnerModule,
   MatProgressBarModule,
   MatToolbarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatMenuModule,
+  MatListModule,
+  MatDividerModule
 ]
 
 

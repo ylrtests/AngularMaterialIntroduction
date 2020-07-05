@@ -9,8 +9,16 @@ export class GuideComponent {
   title = 'AngularMaterialCourse';
   showSpinner = false;
   barProgressValue = 10;
+  optionA = {
+    name: 'option A',
+    hobby: 'football'
+  };
+  optionB = {
+    name: 'option B',
+    hobby: 'basketball'
+  };
 
-  loadData() {
+  loadData() { 
     this.showSpinner = true;
     setTimeout(() => { this.showSpinner = false; }, 3000)
   }
