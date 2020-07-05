@@ -1,201 +1,273 @@
 <!-- Buttons -->
 <a href="https://material.angular.io/components/button/overview" target="_blank">
-    <h1 class="main-title">Buttons</h1>
-  </a>
-  <hr>
-  <button mat-button>Mat Button</button>
-  <button mat-raised-button>Mat Raised Button</button>
-  <button mat-flat-button>Mat Flat Button</button>
-  <button mat-stroked-button>Mat Stroked Button</button>
-  <div>
-    <button mat-icon-button>Icon</button>
-    <button mat-fab>Fab</button>
-    <button mat-mini-fab>Mini</button>
-  </div>
-  
-  <div>
-    <button mat-button color="primary">Primary</button>
-    <button mat-button color="accent">accent</button>
-    <button mat-button color="warn">warn</button>
-  </div>
-  <div>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">accent</button>
-    <button mat-raised-button color="warn">warn</button>
-  </div>
-  <hr>
-  <!-- Button Toggle: Behaves like a Radio Button-->
-  <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">
-    <h1 class="main-title">Buttons Toggle</h1>
-  </a>
-  <hr>
-  <div>
-    <h2 class="description">Simple toggle button</h2>
-    <mat-button-toggle #toggleButton>Toggle</mat-button-toggle>
-    <p>Toggle Button Value: {{toggleButton.checked}}</p>
-  </div>
-  <div>
-    <h2 class="description">toggle Group only one value</h2>
-    <mat-button-toggle-group #group="matButtonToggleGroup">
-      <mat-button-toggle value="angular">Angular</mat-button-toggle>
-      <mat-button-toggle value="react">React</mat-button-toggle>
-      <mat-button-toggle value="vue">Vue</mat-button-toggle>
-    </mat-button-toggle-group>
-    <p>Value button toggle: {{group.value}}</p>
-  </div>
-  <div>
-    <h2 class="description">toggle Group stores many values</h2>
-    <mat-button-toggle-group #groupee="matButtonToggleGroup" multiple>
-      <mat-button-toggle value="react">React</mat-button-toggle>
-      <mat-button-toggle value="vue">Vue</mat-button-toggle>
-    </mat-button-toggle-group>
-    <mat-button-toggle value="angular">Angular</mat-button-toggle>
-    <p>Value button toggle: {{groupee.value}}</p>
-  </div>
-  
-  <hr>
-  <!-- Icons & Badges -->
-  <a href="https://material.angular.io/components/icon/overview" target="_blank">
-    <h1 class="main-title">Icons</h1>
-  </a>
-  <hr>
-  <p>List of icons: <a href="https://material.io/resources/icons/?style=baseline" target="_blank"> Check them</a></p>
-  <div>
-    <mat-icon>start</mat-icon>
-    <mat-icon>restore</mat-icon>
-    <mat-icon color="primary">start</mat-icon>
-    <mat-icon color="accent">explicit</mat-icon>
-  </div>
-  <p>For badges we use the attributte matBadge="value in Badge" we could also modify:</p>
-  <ul>
-    <li>matBadgeSize = small/medium/large</li>
-    <li>madBadgePosition = below/above - before/after</li>
-    <li>madBadgeColor = "primary, accent, warn..."</li>
-    <li>matBadgeOverlap = acomoda el badge a una posición donde no haga overlap con el elemento - false/true</li>
-  </ul>
-  <span class="mat-badge-example" matBadge="5">Notifications</span>
-  <span class="mat-badge-example" matBadge="5" matBadgeSize="small" matBadgePosition="below before">Modyfing
-    position</span>
-  <span class="mat-badge-example" matBadge="5" matBadgeSize="large" matBadgePosition="below after">Modyfing
-    position</span>
-  <span class="mat-badge-example" matBadge="5" matBadgePosition="above before">Modyfing position</span>
-  <span class="mat-badge-example" matBadge="5" matBadgePosition="above after">Modyfing position</span>
-  <span class="mat-badge-example" matBadge="5" matBadgePosition="above after" matBadgeColor="accent"
-    matBadgeOverlap="false">MatBadgeOverlap = false</span>
-  <hr>
-  <!-- Progress Spinner & Progress Bar Indicator -->
-  <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">
-    <h1 class="main-title">Progress Spinner & Progress Bar Indicator</h1>
-  </a>
-  <h2 class="description">Progress Spinner</h2>
-  <mat-progress-spinner value="40"></mat-progress-spinner> <span>Value 40</span>
-  <mat-progress-spinner value="100"></mat-progress-spinner> <span>Value 100</span>
-  <button mat-flat-button color="accent" (click)="loadData()" style="display: block">Show Spinner</button>
-  <div *ngIf="showSpinner">
-    <mat-spinner color="accent"></mat-spinner><span>Spinner running indefinitely for 3 sec</span>
-  </div>
-  <h2 class="description">Progress Bar Indicator</h2>
-  <p>Mode query</p>
-  <mat-progress-bar mode="query"></mat-progress-bar>
-  <p>Mode Buffer</p>
-  <mat-progress-bar mode="buffer"></mat-progress-bar>
-  <p>With value 40</p>
-  <button (click)="incrementBarProgress()">Increment BarProgressValue</button>
-  <mat-progress-bar mode="determinate" [value]="barProgressValue"></mat-progress-bar>
-  <hr>
-  <!-- Menu -->
-  <hr>
-  <h1 class="main-title">Menu</h1>
-  <p>Podemos editar las posiciones de los menus, hay posiciones diferentes para Frontend y Backend</p>
-  <mat-menu #appMenu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="subMenuFrontend">Frontend</button>
-    <button mat-menu-item [matMenuTriggerFor]="subMenuBackend">Backend</button>
-  </mat-menu>
-  <mat-menu #subMenuFrontend="matMenu" xPosition="after" yPosition="above">
-    <button mat-menu-item>Angular</button>
-    <button mat-menu-item>React</button>
-  </mat-menu>
-  <mat-menu #subMenuBackend="matMenu" xPosition="after" yPosition="below">
-    <button mat-menu-item>Node</button>
-    <button mat-menu-item>Laravel</button>
-  </mat-menu>
-  <button mat-flat-button color="primary"  [matMenuTriggerFor]="appMenu">Menu</button>
-  <!-- Lazy Menu -->
-  <p>Using LazyMenu para tener contenido dinámico dentro de las opciones del menu</p>
-  <mat-menu #lazyLoad="matMenu">
-    <ng-template matMenuContent let-name="name" let-hobby="hobby">
-      <button mat-menu-item>Settings {{hobby}}</button>
-      <button mat-menu-item>Log out {{name}}</button>
-    </ng-template>
-  </mat-menu>
-  <button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionA" color="primary">Lazy Menu A options</button>
-  <button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionB" color="primary">Lazy Menu B options</button>
-  <hr>
-  <!-- Lists -->
-  <hr>
-  <h1 class="main-title">Lists</h1>
-  <mat-list dense>
-    <mat-list-item>Item 1</mat-list-item>
-    <mat-list-item>Item 2</mat-list-item>
-    <mat-list-item>Item 3</mat-list-item>
-  </mat-list>
-  <mat-nav-list>
-    <a href="#" mat-list-item>Home</a>
-    <a href="#" mat-list-item>Example</a>
-    <a href="#" mat-list-item>Nothing</a>
-    <a href="#" mat-list-item>Different</a>
-  </mat-nav-list>
-  <!-- Mat list using icon and matline -->
-  <mat-list dense>
-    <mat-list-item>
-      <mat-icon matListIcon>home</mat-icon>
-      <h3 matLine>Heading 1 </h3>
-      <p matLine>Line 1</p>
-      <p matLine>Third thing 1</p>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>
-      <mat-icon matListIcon>folder</mat-icon>
-      <h3 matLine>Heading 2</h3>
-      <p matLine>Line 2</p>
-    </mat-list-item>
-  </mat-list>
+  <h1 class="main-title">Buttons</h1>
+</a>
+<hr>
+<button mat-button>Mat Button</button>
+<button mat-raised-button>Mat Raised Button</button>
+<button mat-flat-button>Mat Flat Button</button>
+<button mat-stroked-button>Mat Stroked Button</button>
+<div>
+  <button mat-icon-button>Icon</button>
+  <button mat-fab>Fab</button>
+  <button mat-mini-fab>Mini</button>
+</div>
 
-  <!-- Toolbar & sidenav -->
-  <hr>
-  <h1 class="main-title">Toolbar & sidenav</h1>
-  <h2 class="description">Toolbar</h2>
-  <mat-toolbar color="accent" class="navbar">
-    <div>CodeVolution</div>
-    <div>
-      <span>Home</span>
-      <span>About</span>
-      <span>Services </span>
-    </div>
-  </mat-toolbar>
-  <h2 class="description">Sidenav</h2>
-  <a routerLink="/sidenav">Go to SidenavExample</a>
-  <!-- Typography -->
-  <h1 class="main-title">Typography</h1>
-  <hr>
-  
-  <div class="mat-display-4">Hola</div>
-  <div class="mat-display-3">Hola</div>
-  <div class="mat-display-2">Hola</div>
-  <div class="mat-display-1">Hola</div>
-  
-  <div class="mat-headline">This is a heading for mat-headline</div>
-  <div class="mat-title">This is a heading for h2: mat-title</div>
-  <div class="mat-subheading-2">This is a subheading for h3: mat-subheading-1</div>
-  <div class="mat-subheading-1">This is a subheading for h4: mat-subheading-2</div>
-  
-  <div class="mat-body-1">This is body text</div>
-  <div class="mat-body-2">This is bold body text</div>
-  <div class="mat-caption">This is caption text</div>
-  
-  <div class="mat-typography">
-    <h1>This is a heading for h1</h1>
-    <h2>This is a heading for h2</h2>
-    <h3>This is a heading for h3</h3>
-    <h4>This is a heading for h4</h4>
+<div>
+  <button mat-button color="primary">Primary</button>
+  <button mat-button color="accent">accent</button>
+  <button mat-button color="warn">warn</button>
+</div>
+<div>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">accent</button>
+  <button mat-raised-button color="warn">warn</button>
+</div>
+<hr>
+<!-- Button Toggle: Behaves like a Radio Button-->
+<a href="https://material.angular.io/components/button-toggle/overview" target="_blank">
+  <h1 class="main-title">Buttons Toggle</h1>
+</a>
+<hr>
+<div>
+  <h2 class="description">Simple toggle button</h2>
+  <mat-button-toggle #toggleButton>Toggle</mat-button-toggle>
+  <p>Toggle Button Value: {{toggleButton.checked}}</p>
+</div>
+<div>
+  <h2 class="description">toggle Group only one value</h2>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  <p>Value button toggle: {{group.value}}</p>
+</div>
+<div>
+  <h2 class="description">toggle Group stores many values</h2>
+  <mat-button-toggle-group #groupee="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-button-toggle value="angular">Angular</mat-button-toggle>
+  <p>Value button toggle: {{groupee.value}}</p>
+</div>
+
+<hr>
+<!-- Icons & Badges -->
+<a href="https://material.angular.io/components/icon/overview" target="_blank">
+  <h1 class="main-title">Icons</h1>
+</a>
+<hr>
+<p>List of icons: <a href="https://material.io/resources/icons/?style=baseline" target="_blank"> Check them</a></p>
+<div>
+  <mat-icon>start</mat-icon>
+  <mat-icon>restore</mat-icon>
+  <mat-icon color="primary">start</mat-icon>
+  <mat-icon color="accent">explicit</mat-icon>
+</div>
+<p>For badges we use the attributte matBadge="value in Badge" we could also modify:</p>
+<ul>
+  <li>matBadgeSize = small/medium/large</li>
+  <li>madBadgePosition = below/above - before/after</li>
+  <li>madBadgeColor = "primary, accent, warn..."</li>
+  <li>matBadgeOverlap = acomoda el badge a una posición donde no haga overlap con el elemento - false/true</li>
+</ul>
+<span class="mat-badge-example" matBadge="5">Notifications</span>
+<span class="mat-badge-example" matBadge="5" matBadgeSize="small" matBadgePosition="below before">Modyfing
+  position</span>
+<span class="mat-badge-example" matBadge="5" matBadgeSize="large" matBadgePosition="below after">Modyfing
+  position</span>
+<span class="mat-badge-example" matBadge="5" matBadgePosition="above before">Modyfing position</span>
+<span class="mat-badge-example" matBadge="5" matBadgePosition="above after">Modyfing position</span>
+<span class="mat-badge-example" matBadge="5" matBadgePosition="above after" matBadgeColor="accent"
+  matBadgeOverlap="false">MatBadgeOverlap = false</span>
+<hr>
+<!-- Progress Spinner & Progress Bar Indicator -->
+<a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">
+  <h1 class="main-title">Progress Spinner & Progress Bar Indicator</h1>
+</a>
+<h2 class="description">Progress Spinner</h2>
+<mat-progress-spinner value="40"></mat-progress-spinner> <span>Value 40</span>
+<mat-progress-spinner value="100"></mat-progress-spinner> <span>Value 100</span>
+<button mat-flat-button color="accent" (click)="loadData()" style="display: block">Show Spinner</button>
+<div *ngIf="showSpinner">
+  <mat-spinner color="accent"></mat-spinner><span>Spinner running indefinitely for 3 sec</span>
+</div>
+<h2 class="description">Progress Bar Indicator</h2>
+<p>Mode query</p>
+<mat-progress-bar mode="query"></mat-progress-bar>
+<p>Mode Buffer</p>
+<mat-progress-bar mode="buffer"></mat-progress-bar>
+<p>With value 40</p>
+<button (click)="incrementBarProgress()">Increment BarProgressValue</button>
+<mat-progress-bar mode="determinate" [value]="barProgressValue"></mat-progress-bar>
+<hr>
+<!-- Menu -->
+<hr>
+<h1 class="main-title">Menu</h1>
+<p>Podemos editar las posiciones de los menus, hay posiciones diferentes para Frontend y Backend</p>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="subMenuFrontend">Frontend</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenuBackend">Backend</button>
+</mat-menu>
+<mat-menu #subMenuFrontend="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+</mat-menu>
+<mat-menu #subMenuBackend="matMenu" xPosition="after" yPosition="below">
+  <button mat-menu-item>Node</button>
+  <button mat-menu-item>Laravel</button>
+</mat-menu>
+<button mat-flat-button color="primary" [matMenuTriggerFor]="appMenu">Menu</button>
+<!-- Lazy Menu -->
+<p>Using LazyMenu para tener contenido dinámico dentro de las opciones del menu</p>
+<mat-menu #lazyLoad="matMenu">
+  <ng-template matMenuContent let-name="name" let-hobby="hobby">
+    <button mat-menu-item>Settings {{hobby}}</button>
+    <button mat-menu-item>Log out {{name}}</button>
+  </ng-template>
+</mat-menu>
+<button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionA" color="primary">Lazy Menu A
+  options</button>
+<button mat-flat-button [matMenuTriggerFor]="lazyLoad" [matMenuTriggerData]="optionB" color="primary">Lazy Menu B
+  options</button>
+<hr>
+<!-- Lists -->
+<hr>
+<h1 class="main-title">Lists</h1>
+<mat-list dense>
+  <mat-list-item>Item 1</mat-list-item>
+  <mat-list-item>Item 2</mat-list-item>
+  <mat-list-item>Item 3</mat-list-item>
+</mat-list>
+<mat-nav-list>
+  <a href="#" mat-list-item>Home</a>
+  <a href="#" mat-list-item>Example</a>
+  <a href="#" mat-list-item>Nothing</a>
+  <a href="#" mat-list-item>Different</a>
+</mat-nav-list>
+<!-- Mat list using icon and matline -->
+<mat-list dense>
+  <mat-list-item>
+    <mat-icon matListIcon>home</mat-icon>
+    <h3 matLine>Heading 1 </h3>
+    <p matLine>Line 1</p>
+    <p matLine>Third thing 1</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListIcon>folder</mat-icon>
+    <h3 matLine>Heading 2</h3>
+    <p matLine>Line 2</p>
+  </mat-list-item>
+</mat-list>
+
+<!-- Toolbar & sidenav -->
+<hr>
+<h1 class="main-title">Toolbar & sidenav</h1>
+<h2 class="description">Toolbar</h2>
+<mat-toolbar color="accent" class="navbar">
+  <div>CodeVolution</div>
+  <div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services </span>
   </div>
+</mat-toolbar>
+<h2 class="description">Sidenav</h2>
+<a routerLink="/sidenav">Go to SidenavExample</a>
+<hr>
+<!-- Grid List -->
+<hr>
+<h1 class="main-title">Grid List</h1>
+<p>Define number of columns with cols attribute in mat-grid-list</p>
+<p>Define if an element spans more than one column/row using columnspan/rowspan attributes </p>
+<p>Gutter size property to define this space</p>
+<p>Default: Height of row is equal to width of column, to override this we use the rowHeight attribute</p>
+<ul>
+  <li>Using rowHeight: 100px, defines static value</li>
+  <li>Using rowHeight: 2:1 aspects ratio, the height is half of a column's width</li>
+  <li>Using rowHeight: fit and defining a height for the container, fits automatically</li>
+</ul>
+<mat-grid-list cols="2" rowHeight="2:1" gutterSize="10px">
+  <mat-grid-tile rowspan="2">Tile 1</mat-grid-tile>
+  <mat-grid-tile>Tile 2</mat-grid-tile>
+  <mat-grid-tile>Tile 3</mat-grid-tile>
+  <mat-grid-tile colspan="2">Tile 4</mat-grid-tile>
+  <mat-grid-tile>Tile 5</mat-grid-tile>
+  <mat-grid-tile>Tile 6</mat-grid-tile>
+</mat-grid-list>
+<hr>
+<!-- Expansive Panels -->
+<hr>
+<h1 class="main-title">Expansive Panels</h1>
+<h2 class="description">Basic Expansive Panel</h2>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>Angular Fundamentals</mat-panel-title>
+    <mat-panel-description>Total duration: 20hr</mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>This is more about angular</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis labore veritatis doloribus,
+    quibusdam aut voluptatum deleniti, cum ipsa rerum incidunt voluptatibus illo voluptates eum! Reprehenderit
+    dignissimos modi molestias quisquam!</p>
+  <mat-action-row>
+    <button mat-button color="primary">Enroll</button>
+  </mat-action-row>
+</mat-expansion-panel>
+<h2 class="description">Expansive Panel Accordion nested</h2>
+<p>En un acordion cuando un expansiion panel se abre, el otro se cierra</p>
+<p>Se puede cambiar esto usando multi="true" para tener varios paneles expanded</p>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header">
+      <mat-panel-title>Angular Material</mat-panel-title>
+      <mat-panel-description>Total duration: 10hr</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is more about angular</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis labore veritatis doloribus,
+      quibusdam aut voluptatum deleniti, cum ipsa rerum incidunt voluptatibus illo voluptates eum! Reprehenderit
+      dignissimos modi molestias quisquam!</p>
+    <mat-action-row>
+      <button mat-button color="primary">Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header">
+      <mat-panel-title>Angular RxJS</mat-panel-title>
+      <mat-panel-description>Total duration: 20hr</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is more about angular RxJS</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis labore veritatis doloribus,
+      quibusdam aut voluptatum deleniti, cum ipsa rerum incidunt voluptatibus illo voluptates eum! Reprehenderit
+      dignissimos modi molestias quisquam!</p>
+    <mat-action-row>
+      <button mat-button color="primary">Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<!-- Typography -->
+<h1 class="main-title">Typography</h1>
+<hr>
+
+<div class="mat-display-4">Hola</div>
+<div class="mat-display-3">Hola</div>
+<div class="mat-display-2">Hola</div>
+<div class="mat-display-1">Hola</div>
+
+<div class="mat-headline">This is a heading for mat-headline</div>
+<div class="mat-title">This is a heading for h2: mat-title</div>
+<div class="mat-subheading-2">This is a subheading for h3: mat-subheading-1</div>
+<div class="mat-subheading-1">This is a subheading for h4: mat-subheading-2</div>
+
+<div class="mat-body-1">This is body text</div>
+<div class="mat-body-2">This is bold body text</div>
+<div class="mat-caption">This is caption text</div>
+
+<div class="mat-typography">
+  <h1>This is a heading for h1</h1>
+  <h2>This is a heading for h2</h2>
+  <h3>This is a heading for h3</h3>
+  <h4>This is a heading for h4</h4>
+</div>
