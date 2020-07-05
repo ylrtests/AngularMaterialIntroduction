@@ -247,6 +247,62 @@
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
+<hr>
+<!-- Card and tabs -->
+<hr>
+<h1 class="main-title">Card</h1>
+<h2 class="description">Card</h2>
+<mat-card>
+  <mat-card-title>Card title</mat-card-title>
+  <mat-card-content>This is the card content</mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button>Login</button>
+  </mat-card-actions>
+</mat-card>
+<h2 class="description">Tabs</h2>
+<mat-tab-group #tabRef>
+  <mat-tab label="Angular">Angular Content</mat-tab>
+  <mat-tab label="React">React Content</mat-tab>
+  <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group>
+<p>El index del tab group es: {{tabRef.selectedIndex}}</p>
+<hr>
+<!-- Stepper -->
+<hr>
+<h1 class="main-title">Stepper</h1>
+<p>Stepper could be horizontal or vertial. Also some steps could be optional</p>
+<mat-horizontal-stepper linear>
+  <mat-step label="Shipping Address" completed="true">
+    <p>Shipping address details</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi pariatur illo, non facilis quidem perspiciatis
+      odit aperiam dolores eum sunt ratione nemo labore reiciendis, harum natus dicta explicabo eligendi consectetur.
+    </p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Billing Address" completed="false">
+    <p>Billing Address</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi pariatur illo, non facilis quidem perspiciatis
+      odit aperiam dolores eum sunt ratione nemo labore reiciendis, harum natus dicta explicabo eligendi consectetur.
+    </p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order" completed="false">
+    <p>Place Order</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi pariatur illo, non facilis quidem perspiciatis
+      odit aperiam dolores eum sunt ratione nemo labore reiciendis, harum natus dicta explicabo eligendi consectetur.
+    </p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 <!-- Typography -->
 <h1 class="main-title">Typography</h1>
 <hr>
